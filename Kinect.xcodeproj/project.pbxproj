@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F1F63BD1E22C3EF00A15EAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F63BC1E22C3EF00A15EAD /* AppDelegate.swift */; };
+		0F1F63BF1E22C3EF00A15EAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F63BE1E22C3EF00A15EAD /* ViewController.swift */; };
+		0F1F63C11E22C3EF00A15EAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F1F63C01E22C3EF00A15EAD /* Assets.xcassets */; };
+		0F1F63C41E22C3EF00A15EAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1F63C21E22C3EF00A15EAD /* Main.storyboard */; };
+		0F1F63CD1E22C41000A15EAD /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F63CC1E22C41000A15EAD /* Point3D.swift */; };
+		0F1F63CF1E22C76D00A15EAD /* BodyPosture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F63CE1E22C76D00A15EAD /* BodyPosture.swift */; };
+		0F237FC91E22D64E00B5477F /* PostureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F237FC81E22D64E00B5477F /* PostureManager.swift */; };
+		0F237FCB1E22D6E600B5477F /* posturi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F237FCA1E22D6E600B5477F /* posturi.json */; };
+		0F237FCD1E22DE1500B5477F /* BodyMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F237FCC1E22DE1500B5477F /* BodyMovement.swift */; };
+		719F3F1B15FEB6F7C2E7ACA6 /* Pods_Kinect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5917C8CFE68BF831546F20F8 /* Pods_Kinect.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0EBAD4BE721C23F372FD20EB /* Pods-Kinect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kinect/Pods-Kinect.debug.xcconfig"; sourceTree = "<group>"; };
+		0F1F63B91E22C3EF00A15EAD /* Kinect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kinect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F1F63BC1E22C3EF00A15EAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0F1F63BE1E22C3EF00A15EAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0F1F63C01E22C3EF00A15EAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F1F63C31E22C3EF00A15EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0F1F63C51E22C3EF00A15EAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F1F63CC1E22C41000A15EAD /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
+		0F1F63CE1E22C76D00A15EAD /* BodyPosture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyPosture.swift; sourceTree = "<group>"; };
+		0F237FC81E22D64E00B5477F /* PostureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostureManager.swift; sourceTree = "<group>"; };
+		0F237FCA1E22D6E600B5477F /* posturi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posturi.json; sourceTree = "<group>"; };
+		0F237FCC1E22DE1500B5477F /* BodyMovement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMovement.swift; sourceTree = "<group>"; };
+		4757EFF0CABA06131D8E3FE3 /* Pods-Kinect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kinect/Pods-Kinect.release.xcconfig"; sourceTree = "<group>"; };
+		5917C8CFE68BF831546F20F8 /* Pods_Kinect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kinect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F1F63B61E22C3EE00A15EAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				719F3F1B15FEB6F7C2E7ACA6 /* Pods_Kinect.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F1F63B01E22C3EE00A15EAD = {
+			isa = PBXGroup;
+			children = (
+				0F1F63BB1E22C3EF00A15EAD /* Kinect */,
+				0F1F63BA1E22C3EF00A15EAD /* Products */,
+				E44F9C3D196494060649E143 /* Pods */,
+				509379F4194AF38CF1D65DE2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0F1F63BA1E22C3EF00A15EAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F1F63B91E22C3EF00A15EAD /* Kinect.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F1F63BB1E22C3EF00A15EAD /* Kinect */ = {
+			isa = PBXGroup;
+			children = (
+				0F237FCA1E22D6E600B5477F /* posturi.json */,
+				0F1F63CB1E22C3FF00A15EAD /* Bussiness */,
+				0F1F63BC1E22C3EF00A15EAD /* AppDelegate.swift */,
+				0F1F63BE1E22C3EF00A15EAD /* ViewController.swift */,
+				0F1F63C01E22C3EF00A15EAD /* Assets.xcassets */,
+				0F1F63C21E22C3EF00A15EAD /* Main.storyboard */,
+				0F1F63C51E22C3EF00A15EAD /* Info.plist */,
+			);
+			path = Kinect;
+			sourceTree = "<group>";
+		};
+		0F1F63CB1E22C3FF00A15EAD /* Bussiness */ = {
+			isa = PBXGroup;
+			children = (
+				0F1F63CC1E22C41000A15EAD /* Point3D.swift */,
+				0F1F63CE1E22C76D00A15EAD /* BodyPosture.swift */,
+				0F237FC81E22D64E00B5477F /* PostureManager.swift */,
+				0F237FCC1E22DE1500B5477F /* BodyMovement.swift */,
+			);
+			name = Bussiness;
+			sourceTree = "<group>";
+		};
+		509379F4194AF38CF1D65DE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5917C8CFE68BF831546F20F8 /* Pods_Kinect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E44F9C3D196494060649E143 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EBAD4BE721C23F372FD20EB /* Pods-Kinect.debug.xcconfig */,
+				4757EFF0CABA06131D8E3FE3 /* Pods-Kinect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F1F63B81E22C3EE00A15EAD /* Kinect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F1F63C81E22C3EF00A15EAD /* Build configuration list for PBXNativeTarget "Kinect" */;
+			buildPhases = (
+				6C55667126D8654A4DB23482 /* [CP] Check Pods Manifest.lock */,
+				0F1F63B51E22C3EE00A15EAD /* Sources */,
+				0F1F63B61E22C3EE00A15EAD /* Frameworks */,
+				0F1F63B71E22C3EE00A15EAD /* Resources */,
+				681A13DFDB8B7F9E6CB78236 /* [CP] Embed Pods Frameworks */,
+				D251FE73C0FE016AD79332EC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kinect;
+			productName = Kinect;
+			productReference = 0F1F63B91E22C3EF00A15EAD /* Kinect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0F1F63B11E22C3EE00A15EAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = ASSIST;
+				TargetAttributes = {
+					0F1F63B81E22C3EE00A15EAD = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 49238BQAVS;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0F1F63B41E22C3EE00A15EAD /* Build configuration list for PBXProject "Kinect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0F1F63B01E22C3EE00A15EAD;
+			productRefGroup = 0F1F63BA1E22C3EF00A15EAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F1F63B81E22C3EE00A15EAD /* Kinect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0F1F63B71E22C3EE00A15EAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F237FCB1E22D6E600B5477F /* posturi.json in Resources */,
+				0F1F63C11E22C3EF00A15EAD /* Assets.xcassets in Resources */,
+				0F1F63C41E22C3EF00A15EAD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		681A13DFDB8B7F9E6CB78236 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kinect/Pods-Kinect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C55667126D8654A4DB23482 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D251FE73C0FE016AD79332EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kinect/Pods-Kinect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F1F63B51E22C3EE00A15EAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F237FCD1E22DE1500B5477F /* BodyMovement.swift in Sources */,
+				0F1F63CF1E22C76D00A15EAD /* BodyPosture.swift in Sources */,
+				0F237FC91E22D64E00B5477F /* PostureManager.swift in Sources */,
+				0F1F63CD1E22C41000A15EAD /* Point3D.swift in Sources */,
+				0F1F63BF1E22C3EF00A15EAD /* ViewController.swift in Sources */,
+				0F1F63BD1E22C3EF00A15EAD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0F1F63C21E22C3EF00A15EAD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F1F63C31E22C3EF00A15EAD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0F1F63C61E22C3EF00A15EAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0F1F63C71E22C3EF00A15EAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		0F1F63C91E22C3EF00A15EAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EBAD4BE721C23F372FD20EB /* Pods-Kinect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 49238BQAVS;
+				INFOPLIST_FILE = Kinect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assist.Kinect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0F1F63CA1E22C3EF00A15EAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4757EFF0CABA06131D8E3FE3 /* Pods-Kinect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 49238BQAVS;
+				INFOPLIST_FILE = Kinect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.assist.Kinect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F1F63B41E22C3EE00A15EAD /* Build configuration list for PBXProject "Kinect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F1F63C61E22C3EF00A15EAD /* Debug */,
+				0F1F63C71E22C3EF00A15EAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0F1F63C81E22C3EF00A15EAD /* Build configuration list for PBXNativeTarget "Kinect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F1F63C91E22C3EF00A15EAD /* Debug */,
+				0F1F63CA1E22C3EF00A15EAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0F1F63B11E22C3EE00A15EAD /* Project object */;
+}
