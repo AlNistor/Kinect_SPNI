@@ -15,7 +15,7 @@ final class Point3D {
     final var Y             : Float         = 0.0
     final var Z             : Float         = 0.0
     final var ScreenPoint   : CGPoint       = CGPoint()
-    final var type          : String        = ""
+    final var name          : String        = ""
     
     // MARK: - Constructor
     init(x : Float, y : Float, z : Float, screenPoint : CGPoint, type_ : String) {
@@ -23,14 +23,14 @@ final class Point3D {
         Y = y
         Z = z
         ScreenPoint = screenPoint
-        type = type_
+        name = type_
     }
     
     init(jsonPoint : JSON) {
         X = jsonPoint["X"].floatValue
         Y = jsonPoint["Y"].floatValue
         Z = jsonPoint["Z"].floatValue
-        type = jsonPoint["Type"].stringValue
+        name = jsonPoint["name"].stringValue
         ScreenPoint = CGPoint(x: jsonPoint["ScreenPoint"]["X"].intValue, y: jsonPoint["ScreenPoint"]["Y"].intValue)
     }
     

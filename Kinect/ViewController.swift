@@ -9,18 +9,31 @@
 import Cocoa
 import Quartz
 import CocoaAsyncSocket
+import SwiftyJSON
 
 class ViewController: NSViewController {
 
     @IBOutlet weak var imgView: NSImageView!
-    @IBOutlet weak var statusLabel: NSTextField!
-    @IBOutlet weak var recordButton: NSButton!
+    @IBOutlet weak var getPostureButton: NSButton!
+    @IBOutlet weak var classNameTextField: NSTextField!
+    @IBOutlet weak var resultClasificationTextField: NSTextField!
+    @IBOutlet weak var saveToFileButton: NSButton!
+    @IBOutlet weak var loadFileButton: NSButton!
+    @IBOutlet weak var classifyButton: NSButton!
+    @IBOutlet weak var leftScrollView: NSScrollView!
+    @IBOutlet weak var rightScrollView: NSScrollView!
+    @IBOutlet var leftTextView: NSTextView!
+    @IBOutlet var rightTextView: NSTextView!
     
-    fileprivate var offlinePostures : [BodyPosture]!
+    
+    fileprivate var offlinePostures : [BodyPosture] = []
+    fileprivate var savedPostures : [BodyPosture] = []
     fileprivate var currentPosture : BodyPosture!
     fileprivate var bodyMovement : BodyMovement! = BodyMovement()
-    fileprivate var bodyMovements : [BodyMovement]!
+    fileprivate var bodyMovements : [BodyMovement] = []
     fileprivate var recording : Bool = false
+    
+    fileprivate let useSOCKET : Bool = false
     
     private var socket : GCDAsyncSocket!
     fileprivate var timer : Timer!
@@ -31,16 +44,19 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
         offlinePostures = PostureManager.loadPostures()
         loadPostureToUI(bp: offlinePostures[5])
-
-        setupSocket()
         
 //        PostureManager.savePosturesToFile(fileName: "test.json", postures: offlinePostures)
         
-        statusLabel.stringValue = category(bp: offlinePostures[5])
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (timer) in
-            self.setupSocket()
+            if self.useSOCKET {
+                self.setupSocket()
+            }else {
+                self.currentPosture = BodyPosture.generateRandomPostures(frame: self.imgView.frame)
+                self.loadPostureToUI(bp: self.currentPosture)
+            }
         })
+        
+        timer.fire()
     }
 
     override var representedObject: Any? {
@@ -48,13 +64,83 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-    @IBAction func recordMovements(_ sender: Any) {
-        recordButton.title = recording ? "Start Recording" : "Stop Recording"
+    
+    // MARK: - Actions
+    @IBAction func getPostureAction(_ sender: Any) {
+        if classNameTextField.stringValue.isEmpty {
+            print("Please insert a name for this posture!")
+            return
+        }
         
-        recording = !recording
+        currentPosture.name = classNameTextField.stringValue.uppercased()
+        savedPostures.append(currentPosture)
+        
+        var tempString = ""
+        for item in savedPostures {
+            tempString += JSONSerializer.toJson(item) + "\n\n\n"
+        }
+        
+        leftTextView.string = tempString
+        
+        leftTextView.scrollToEndOfDocument(nil)
     }
     
+    @IBAction func savePosturesToFileAction(_ sender: Any) {
+        if savedPostures.isEmpty {
+            print("You don't have any postures saved yet.")
+            return
+        }
+        
+        PostureManager.savePosturesToFile(fileName: "postures_\(Date().toString()).json", postures: savedPostures)
+        
+        savedPostures = []
+        leftTextView.string = "File has been saved!"
+    }
+    
+    @IBAction func loadFromFileAction(_ sender: Any) {
+        let dialog = NSOpenPanel()
+        
+        dialog.title                   = "Alegeti un fisier cu extensia .json"
+        dialog.showsResizeIndicator    = true
+        dialog.showsHiddenFiles        = false
+        dialog.canChooseDirectories    = true
+        dialog.canCreateDirectories    = false
+        dialog.allowsMultipleSelection = false
+        dialog.allowedFileTypes        = ["json"]
+        
+        if (dialog.runModal() == NSModalResponseOK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                PostureManager.loadPostures(fromURL: result!, completion: { (newPostures) in
+                    self.offlinePostures = newPostures
+                    
+                    var tempString = ""
+                    for item in self.offlinePostures {
+                        tempString += JSONSerializer.toJson(item) + "\n\n\n"
+                    }
+                    
+                    DispatchQueue.main.async(execute: { 
+                        self.rightTextView.string = tempString + "\n\n END OF FILE"
+                    })
+                })
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+    }
+    
+    @IBAction func classifyAction(_ sender: Any) {
+        if offlinePostures.isEmpty {
+            print("Nu avem posturi cu care sa comparam.")
+            return
+        }
+        
+        resultClasificationTextField.stringValue = category(bp: currentPosture)
+    }
+    
+    // MARK: - Private Methods
     private func setupSocket(){
         socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
         try! socket.connect(toHost: "172.20.0.158", onPort: 12345)
@@ -73,6 +159,7 @@ class ViewController: NSViewController {
         let subviews = newImgToDisplay.subviews
         
         for v in subviews {
+            v.frame.origin.y = v.frame.origin.y - 400
             self.imgView.subviews.insert(v, at: 0)
         }
     }
@@ -89,11 +176,6 @@ extension ViewController : GCDAsyncSocketDelegate {
         if let stringifyData = String(data: data, encoding: .ascii) {
             let posture = BodyPosture(text: stringifyData)
             currentPosture = posture
-            if recording {
-                bodyMovement.bodyPostures.append(currentPosture)
-            }
-            
-            
             loadPostureToUI(bp: currentPosture)
         }
     }
@@ -103,21 +185,12 @@ extension ViewController : GCDAsyncSocketDelegate {
     }
     
     fileprivate func category(bp : BodyPosture) -> String {
-
-        if !recording {
-            let result = offlinePostures.sorted(by: {$0.distanta(toBody: bp) < $1.distanta(toBody: bp)})
-            return result.first!.type
-        }
-        
-        return ""
+        let result = offlinePostures.sorted(by: {$0.distanta(toBody: bp) < $1.distanta(toBody: bp)})
+        return result.first!.name
     }
     
     fileprivate func movementCategory(bm : BodyMovement) -> String{
-        if !recording {
-            let result = bodyMovements.sorted(by: {$0.movingDistance(bm2: bm) < $1.movingDistance(bm2: bm)})
-            return result.first!.name
-        }
-        
-        return ""
+        let result = bodyMovements.sorted(by: {$0.movingDistance(bm2: bm) < $1.movingDistance(bm2: bm)})
+        return result.first!.name
     }
 }

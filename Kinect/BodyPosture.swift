@@ -13,12 +13,12 @@ import SwiftyJSON
 final class BodyPosture {
     // MARK: - Public Variables
     final var Points    : [Point3D]
-    final var type      : String
+    final var name      : String
     
     // MARK: - Constructors
     init() {
         Points = [Point3D]()
-        type = ""
+        name = ""
     }
     
     convenience init(text : String) {
@@ -46,7 +46,7 @@ final class BodyPosture {
     convenience init(jsonData : JSON) {
         self.init()
         
-        type = jsonData["Name"].stringValue
+        name = jsonData["name"].stringValue
         
         for point in jsonData["Points"].array! {
             Points.append(Point3D(jsonPoint: point))
@@ -54,11 +54,31 @@ final class BodyPosture {
     }
     
     // MARK: - Public methods
+    class func generateRandomPostures(frame : NSRect) -> BodyPosture {
+        let posture = BodyPosture()
+        
+        for _ in 0 ..< 20 {
+            
+            let screenPoint = CGPoint(x: generateRandomNumber(min: Int(frame.minX), max: Int(frame.maxX)), y: generateRandomNumber(min: Int(frame.minY), max: Int(frame.maxY)))
+            let type = arc4random_uniform(3)
+            
+            let TYPE = type == 0 ? "Head" : (type == 1 ? "HandLeft" : (type == 1 ? "HandRight" : ""))
+            let X = Float(generateRandomNumber(min: 0, max: Int(frame.maxX)))
+            let Y = Float(generateRandomNumber(min: 0, max: Int(frame.maxX)))
+            let Z = Float(generateRandomNumber(min: 0, max: Int(frame.maxX)))
+            let point = Point3D(x: X, y: Y, z: Z, screenPoint: screenPoint, type_: TYPE)
+            
+            posture.Points.append(point)
+        }
+        
+        return posture
+    }
+    
     func distanta(toBody : BodyPosture) -> Double {
         var sum = 0.0
         for item1 in self.Points {
             for item2 in toBody.Points {
-                if item1.type == item2.type {
+                if item1.name == item2.name {
                     sum += item1.sqrEuclideanDistance(b: item2)
                 }
              }
@@ -76,7 +96,7 @@ final class BodyPosture {
             var R : CGFloat = 5.0
             var color = NSColor()
             
-            switch point.type {
+            switch point.name {
                 case "Head":
                 color = NSColor.red
                 R = 10
@@ -103,7 +123,7 @@ final class BodyPosture {
     func toString() -> String{
         var text = ""
         for point in Points {
-            text += "\(String(format: "%.3f", point.X)), \(String(format: "%.3f", point.Y)), \(String(format: "%.3f", point.Z)), \(String(format: "%d", point.ScreenPoint.x)), \(String(format: "%d", point.ScreenPoint.y)), \(point.type)"
+            text += "\(String(format: "%.3f", point.X)), \(String(format: "%.3f", point.Y)), \(String(format: "%.3f", point.Z)), \(String(format: "%d", point.ScreenPoint.x)), \(String(format: "%d", point.ScreenPoint.y)), \(point.name)"
         }
         
         return text

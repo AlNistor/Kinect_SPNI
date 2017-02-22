@@ -16,6 +16,10 @@
 		0F237FC91E22D64E00B5477F /* PostureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F237FC81E22D64E00B5477F /* PostureManager.swift */; };
 		0F237FCB1E22D6E600B5477F /* posturi.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F237FCA1E22D6E600B5477F /* posturi.json */; };
 		0F237FCD1E22DE1500B5477F /* BodyMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F237FCC1E22DE1500B5477F /* BodyMovement.swift */; };
+		0FA08F841E5C931200D9CDB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA08F811E5C931200D9CDB6 /* Info.plist */; };
+		0FA08F851E5C931200D9CDB6 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA08F821E5C931200D9CDB6 /* JsonSerializer.swift */; };
+		0FA08F8A1E5C95C700D9CDB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FA08F871E5C95C700D9CDB6 /* Info.plist */; };
+		0FA08F8B1E5C95C700D9CDB6 /* TimeLord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA08F891E5C95C700D9CDB6 /* TimeLord.swift */; };
 		719F3F1B15FEB6F7C2E7ACA6 /* Pods_Kinect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5917C8CFE68BF831546F20F8 /* Pods_Kinect.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +36,12 @@
 		0F237FC81E22D64E00B5477F /* PostureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostureManager.swift; sourceTree = "<group>"; };
 		0F237FCA1E22D6E600B5477F /* posturi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posturi.json; sourceTree = "<group>"; };
 		0F237FCC1E22DE1500B5477F /* BodyMovement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyMovement.swift; sourceTree = "<group>"; };
+		0FA08F811E5C931200D9CDB6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FA08F821E5C931200D9CDB6 /* JsonSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializer.swift; sourceTree = "<group>"; };
+		0FA08F831E5C931200D9CDB6 /* JsonSerializerSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonSerializerSwift.h; sourceTree = "<group>"; };
+		0FA08F871E5C95C700D9CDB6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FA08F881E5C95C700D9CDB6 /* TimeLord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLord.h; sourceTree = "<group>"; };
+		0FA08F891E5C95C700D9CDB6 /* TimeLord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLord.swift; sourceTree = "<group>"; };
 		4757EFF0CABA06131D8E3FE3 /* Pods-Kinect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kinect/Pods-Kinect.release.xcconfig"; sourceTree = "<group>"; };
 		5917C8CFE68BF831546F20F8 /* Pods_Kinect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kinect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,6 +79,8 @@
 		0F1F63BB1E22C3EF00A15EAD /* Kinect */ = {
 			isa = PBXGroup;
 			children = (
+				0FA08F861E5C95C700D9CDB6 /* TimeLord */,
+				0FA08F801E5C931200D9CDB6 /* JsonSerializerSwift */,
 				0F237FCA1E22D6E600B5477F /* posturi.json */,
 				0F1F63CB1E22C3FF00A15EAD /* Bussiness */,
 				0F1F63BC1E22C3EF00A15EAD /* AppDelegate.swift */,
@@ -89,6 +101,26 @@
 				0F237FCC1E22DE1500B5477F /* BodyMovement.swift */,
 			);
 			name = Bussiness;
+			sourceTree = "<group>";
+		};
+		0FA08F801E5C931200D9CDB6 /* JsonSerializerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				0FA08F811E5C931200D9CDB6 /* Info.plist */,
+				0FA08F821E5C931200D9CDB6 /* JsonSerializer.swift */,
+				0FA08F831E5C931200D9CDB6 /* JsonSerializerSwift.h */,
+			);
+			path = JsonSerializerSwift;
+			sourceTree = "<group>";
+		};
+		0FA08F861E5C95C700D9CDB6 /* TimeLord */ = {
+			isa = PBXGroup;
+			children = (
+				0FA08F871E5C95C700D9CDB6 /* Info.plist */,
+				0FA08F881E5C95C700D9CDB6 /* TimeLord.h */,
+				0FA08F891E5C95C700D9CDB6 /* TimeLord.swift */,
+			);
+			path = TimeLord;
 			sourceTree = "<group>";
 		};
 		509379F4194AF38CF1D65DE2 /* Frameworks */ = {
@@ -171,8 +203,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA08F841E5C931200D9CDB6 /* Info.plist in Resources */,
 				0F237FCB1E22D6E600B5477F /* posturi.json in Resources */,
 				0F1F63C11E22C3EF00A15EAD /* Assets.xcassets in Resources */,
+				0FA08F8A1E5C95C700D9CDB6 /* Info.plist in Resources */,
 				0F1F63C41E22C3EF00A15EAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F237FCD1E22DE1500B5477F /* BodyMovement.swift in Sources */,
+				0FA08F8B1E5C95C700D9CDB6 /* TimeLord.swift in Sources */,
 				0F1F63CF1E22C76D00A15EAD /* BodyPosture.swift in Sources */,
+				0FA08F851E5C931200D9CDB6 /* JsonSerializer.swift in Sources */,
 				0F237FC91E22D64E00B5477F /* PostureManager.swift in Sources */,
 				0F1F63CD1E22C41000A15EAD /* Point3D.swift in Sources */,
 				0F1F63BF1E22C3EF00A15EAD /* ViewController.swift in Sources */,
